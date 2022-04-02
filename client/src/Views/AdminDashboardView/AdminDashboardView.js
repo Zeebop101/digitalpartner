@@ -29,7 +29,7 @@ const AdminDashboardView = () => {
   const [createAdmin, setCreateAdmin] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/users/get-all').then((response) => {
+    axios.get('https://digitalpartner.herokuapp.com/api/users/get-all').then((response) => {
       setAllUsers(response.data);
     });
   }, []);
@@ -74,7 +74,7 @@ const AdminDashboardView = () => {
 
   const handleAdd = () => {
     axios
-      .post('http://localhost:5000/api/users/add', {
+      .post('https://digitalpartner.herokuapp.com/api/users/add', {
         firstName: firstName,
         lastName: lastName,
         street: street,
@@ -85,7 +85,7 @@ const AdminDashboardView = () => {
       .then((response) => {
         if (response.status === 200) {
           axios
-            .get('http://localhost:5000/api/users/get-all')
+            .get('https://digitalpartner.herokuapp.com/api/users/get-all')
             .then((response) => {
               setAllUsers(response.data);
               toast.success('User Added!');
@@ -102,7 +102,7 @@ const AdminDashboardView = () => {
 
   const handleUpdate = () => {
     axios
-      .post('http://localhost:5000/api/users/update', {
+      .post('https://digitalpartner.herokuapp.com/api/users/update', {
         customerNumber: customerNumber,
         firstName: firstName,
         lastName: lastName,
@@ -114,7 +114,7 @@ const AdminDashboardView = () => {
       .then((response) => {
         if (response.status === 200) {
           axios
-            .get('http://localhost:5000/api/users/get-all')
+            .get('https://digitalpartner.herokuapp.com/api/users/get-all')
             .then((response) => {
               setAllUsers(response.data);
               toast.success('User Updated!');
@@ -133,13 +133,13 @@ const AdminDashboardView = () => {
 
   const handleDelete = (user) => {
     axios
-      .post('http://localhost:5000/api/users/delete', {
+      .post('https://digitalpartner.herokuapp.com/api/users/delete', {
         customerNumber: user.customerNumber,
       })
       .then((response) => {
         if (response.status === 200) {
           axios
-            .get('http://localhost:5000/api/users/get-all')
+            .get('https://digitalpartner.herokuapp.com/api/users/get-all')
             .then((response) => {
               setAllUsers(response.data);
               toast.success('User Deleted!');

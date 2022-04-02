@@ -10,7 +10,7 @@ const Search = () => {
 
   const handleSearch = () => {
     axios
-      .post('http://localhost:5000/api/users/get', { customerNumber: searchId })
+      .post('https://digitalpartner.herokuapp.com/api/users/get', { customerNumber: searchId })
       .then((response) => {
         if (response.status === 200) {
           const user = response.data[0];

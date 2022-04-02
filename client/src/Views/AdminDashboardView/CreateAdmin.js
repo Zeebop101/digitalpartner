@@ -10,7 +10,7 @@ const CreateAdmin = ({ setCreateAdmin }) => {
   const handleSubmit = () => {
     const toastLoadingID = toast.loading('Adding admin...');
     axios
-      .post('http://localhost:5000/api/admins/add', {
+      .post('https://digitalpartner.herokuapp.com/api/admins/add', {
         name,
         username,
         password,

@@ -42,7 +42,7 @@ const BookSection = ({ userToAddBooks, setUserToAddBooks, setAllUsers }) => {
   }, [userToAddBooks]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/books/get-all').then((response) => {
+    axios.get('https://digitalpartner.herokuapp.com/api/books/get-all').then((response) => {
       if (response.status === 200) setAllBooks(response.data);
     });
   }, []);
@@ -61,7 +61,7 @@ const BookSection = ({ userToAddBooks, setUserToAddBooks, setAllUsers }) => {
     formData.append('format', format);
     const toastLoadingID = toast.loading('Adding book...');
     axios
-      .post('http://localhost:5000/api/books/add', formData, {
+      .post('https://digitalpartner.herokuapp.com/api/books/add', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -69,7 +69,7 @@ const BookSection = ({ userToAddBooks, setUserToAddBooks, setAllUsers }) => {
       .then((response) => {
         if (response.status === 200) {
           axios
-            .get('http://localhost:5000/api/books/get-all')
+            .get('https://digitalpartner.herokuapp.com/api/books/get-all')
             .then((response) => {
               if (response.status === 200) {
                 setAllBooks(response.data);
@@ -91,14 +91,14 @@ const BookSection = ({ userToAddBooks, setUserToAddBooks, setAllUsers }) => {
   const handleUpdate = () => {
     console.log(selectedBooks);
     axios
-      .post('http://localhost:5000/api/users/add-books', {
+      .post('https://digitalpartner.herokuapp.com/api/users/add-books', {
         userID: userToAddBooks._id,
         books: selectedBooks,
       })
       .then((response) => {
         if (response.status === 200) {
           axios
-            .get('http://localhost:5000/api/users/get-all')
+            .get('https://digitalpartner.herokuapp.com/api/users/get-all')
             .then((response) => {
               setAllUsers(response.data);
               toast.success(userToAddBooks.firstName + "'s library Updated!");
@@ -111,13 +111,13 @@ const BookSection = ({ userToAddBooks, setUserToAddBooks, setAllUsers }) => {
 
   const handleDelete = (book) => {
     axios
-      .post('http://localhost:5000/api/books/delete', {
+      .post('https://digitalpartner.herokuapp.com/api/books/delete', {
         bookID: book._id,
       })
       .then((response) => {
         if (response.status === 200) {
           axios
-            .get('http://localhost:5000/api/books/get-all')
+            .get('https://digitalpartner.herokuapp.com/api/books/get-all')
             .then((response) => {
               toast.success('Book Deleted!');
               if (response.status === 200) setAllBooks(response.data);
