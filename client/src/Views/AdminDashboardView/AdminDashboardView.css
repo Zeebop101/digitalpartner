@@ -1,0 +1,86 @@
+.admin-heading {
+  position: relative;
+  font-size: calc(1.375rem + 1.5vw);
+  display: inline-block;
+  top: 15px;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+.admin-subheading {
+  font-weight: 100;
+}
+.table-wrapper {
+  width: 700px !important;
+  max-height: 495px !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: inline-block;
+  margin-top: 5px;
+}
+.book-card-wrapper {
+  position: relative;
+  padding: 15px 30px 15px 30px;
+  margin: 10px;
+  background-color: rgb(233, 232, 232);
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.book-card-checkbox {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+}
+.book-card-title {
+  margin-top: 5px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+  font-stretch: expanded;
+}
+.book-condition-box-wrapper {
+  margin-top: 5px;
+}
+.book-condition-box {
+  height: 30px;
+  cursor: pointer;
+}
+.true {
+  border: 2px solid black;
+}
+.render-toast {
+  display: none;
+}
+.delete-book-icon-wrapper {
+  position: absolute;
+  top: -10px;
+  right: -5px;
+}
+.delete-book-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+.create-admin-btn {
+  width: 50%;
+  font-size: 24px;
+  height: 60px;
+  margin-bottom: 50px;
+}
+.book-card-title-marquee {
+  margin-top: 5px;
+  margin-left: 70px;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+  font-stretch: expanded;
+}
+.library-update-btn {
+  margin-left: 40px;
+  margin-right: 20px;
+  margin-top: -15px;
+}
+.library-cancel-btn {
+  margin-top: -15px;
+}

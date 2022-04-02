@@ -1,0 +1,71 @@
+$breakpoints: (
+  smallest: 200px,
+  supersmall: 400px,
+  small: 480px,
+  smallmid: 600px,
+  midsmall: 800px,
+  midmedium: 1000px,
+  medium: 1200px,
+  midlarge: 1500px,
+  large: 2000px,
+);
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+.footer {
+  background: #000;
+  padding-top: 3rem;
+
+  &-container {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+
+    @include mq(medium) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &-links {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem;
+  }
+
+  &-links:hover {
+    color: #e16162;
+  }
+
+  &-links:active {
+    color: #e16162;
+  }
+
+  &-logo {
+    margin-top: 4rem;
+    padding: 1rem;
+    width: 15rem;
+    margin-bottom: 2rem;
+    @include mq(medium) {
+      grid-column: 2/3;
+    }
+  }
+
+  &-copyright {
+    font-size: 0.8rem;
+    line-height: 1.313rem;
+    color: white;
+    padding-bottom: 3rem;
+
+    @include mq(medium) {
+      grid-column: 2/3;
+    }
+  }
+}

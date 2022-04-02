@@ -1,0 +1,309 @@
+// compass watch "C:\Users\zafer\Desktop\digitalpartner\src"
+
+@use 'sass:map';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,400;0,700;1,200&display=swap');
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// VARIABLES /////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --purple-black: #252033;
+  --purple-dark: #2d213d;
+  --purple-middle: #292c6d;
+  --purple-light: #8445ff;
+
+  --yellow-dark: #ff9900;
+  --yellow-light: #ffc700;
+
+  --red-black: #ec255a;
+  --red-dark: #f05454;
+  --red-light: #e16162;
+
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --fw-black: 900;
+}
+
+$breakpoints: (
+  smallest: 200px,
+  supersmall: 400px,
+  small: 480px,
+  smallmid: 600px,
+  midsmall: 800px,
+  midmedium: 1000px,
+  medium: 1200px,
+  midlarge: 1500px,
+  large: 2000px,
+);
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+body {
+  //   background: rgba(224, 209, 183, 0.63);
+}
+
+.libary-container {
+  // display:grid;
+  // background: #F5F2ED;
+  // position: relative;
+  // background-size: cover;
+  // background: rgba(224, 209, 183, 0.63);
+  // z-index: -3;
+  @include mq(medium) {
+    display: grid;
+    // grid-template-columns: .25fr 1fr;
+  }
+}
+p {
+  margin: 0;
+}
+.libary-marquee {
+  margin-left: 50px;
+}
+.overlay {
+  display: none;
+}
+.no-books {
+  @include mq(small) {
+    width: 29rem;
+    height: 17rem;
+  }
+
+  div > img {
+    width: 15rem;
+  }
+}
+.no-bookss {
+  height: 100%;
+  padding-top: 25%;
+}
+.sidebar {
+  position: absolute;
+  top: 1.6rem;
+  height: 7.438rem;
+  width: 100%;
+  background: #f5f2ed;
+  box-shadow: 0px 0px 7px 3px #e6ded2;
+  border-radius: 2.688rem;
+
+  @include mq(medium) {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #f5f2ed;
+    border-radius: 0;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    // height: 100rem;
+  }
+
+  &-profil {
+    display: grid;
+    // grid-template-columns: .3fr .7fr;
+    height: 3.5rem;
+    justify-items: center;
+    align-content: end;
+    align-items: end;
+    margin-top: 3rem;
+
+    @include mq(midmedium) {
+      margin-top: 3.5rem;
+    }
+
+    @include mq(medium) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, minmax(min-content, max-content));
+      height: 100%;
+      align-content: start;
+      margin-top: 0rem;
+    }
+  }
+
+  &-profil-image {
+    position: relative;
+    top: 1rem;
+    #db-image {
+      @include mq(medium) {
+        top: 0;
+        width: 10rem;
+      }
+    }
+  }
+
+  &-profil-daten {
+    #db-name {
+      font-weight: bold;
+
+      @include mq(medium) {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+    }
+
+    #db-number {
+      text-align: center;
+      @include mq(midmedium) {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.libary {
+  display: grid;
+  margin-top: 5.3rem;
+  // background-color: #F5F2ED;
+  // width: 100%;
+  // height: 100%;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  // background: rgba(224, 209, 183, 0.63);
+  padding-bottom: 2rem;
+
+  @include mq(medium) {
+    margin-top: 0;
+    // padding-left: 1rem;
+    // padding-right: 1rem;
+  }
+
+  &-header {
+    height: 5rem;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    @include mq(medium) {
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+      text-align: center;
+      align-self: center;
+      margin-top: 3rem;
+
+      @include mq(smallmid) {
+        font-size: 1.5rem;
+      }
+      @include mq(midsmall) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  //     $breakpoints: (
+  //   smallest: 200px,
+  //   supersmall: 400px,
+  //   small: 480px,
+  //   smallmid: 600px,
+  //   midsmall: 800px,
+  //   midmedium: 1000px,
+  //   medium: 1200px,
+  //   midlarge: 1500px,
+  //   large: 2000px,
+  // );
+
+  &-shelf {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    grid-gap: 3rem;
+
+    @include mq(midmedium) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &-books {
+    display: grid;
+    background: linear-gradient(114.59deg, #e0d1b7 -11.84%, #aa9672 115.29%);
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1px;
+    // width: 20rem;
+    // height: 16rem;
+    justify-self: center;
+
+    @include mq(small) {
+      width: 29rem;
+      height: 17rem;
+    }
+
+    div > img {
+      width: 15rem;
+    }
+  }
+
+  &-content {
+    background-color: #f2ebde;
+
+    height: 12rem;
+    width: 17rem;
+    padding: 1rem;
+    color: #053a2e;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 161.4%;
+    text-align: center;
+
+    @include mq(small) {
+      position: absolute;
+      text-align: left;
+      right: 1rem;
+      top: 2.5rem;
+    }
+
+    .library-marquee {
+      text-decoration: underline;
+      margin-bottom: 0.5rem;
+      margin-left: 80px;
+    }
+    h3 {
+      text-decoration: underline;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &-book {
+    justify-self: center;
+
+    @include mq(small) {
+      position: absolute;
+      left: 1rem;
+      top: 0.8rem;
+    }
+  }
+
+  &-360 {
+    grid-row: 2/3;
+    justify-self: center;
+    margin-bottom: 1rem;
+
+    @include mq(small) {
+      margin-bottom: 0;
+      position: absolute;
+      bottom: 0.5rem;
+      left: 3rem;
+    }
+  }
+}
