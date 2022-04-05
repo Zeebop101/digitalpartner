@@ -11,7 +11,7 @@ const AdminLoginView = () => {
   const handleSubmit = () => {
     const toastLoadingID = toast.loading('Logging in...');
     axios
-      .post('https://digitalpartner.herokuapp.com/api/admins/login', { username, password })
+      .post('https://ihrdigitalpartner.herokuapp.com/api/admins/login', { username, password })
       .then((response) => {
         toast.dismiss(toastLoadingID);
         sessionStorage.setItem('currentAdmin', JSON.stringify(response.data));

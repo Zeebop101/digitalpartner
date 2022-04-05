@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "proxy": "https://digitalpartner.herokuapp.com/",
+  "proxy": "https://ihrdigitalpartner.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
