@@ -31,7 +31,7 @@ app.use("/api/admins", adminRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/books", bookRoutes);
 
-// Server static ssets if in production
+// Server static assets if in production
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder
